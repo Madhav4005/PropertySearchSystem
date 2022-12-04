@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <body>
+  
+<div class="testbox">
+            
+    <form [formGroup]="PropertyDataModel.formPropertyGroup" class="mx-1 mx-md-4">
+    <div class="banner">
+      <h1>Update Property</h1>
+    </div>
+    <br/>
+    <fieldset>
+      <legend>Update Property Form</legend>
+      <div class="columns">
+        <div class="item">
+          <label for="fname">Owner First Name<span>*</span></label>
+          <input id="fname" type="text" formControlName="firstNameControl" name="fname" [(ngModel)]="PropertyDataModel.ownerFirstName" />
+        </div>
+        <div class="item">
+          <label for="lname">Owner Last Name<span>*</span></label>
+          <input id="lname" type="text" name="lname" formControlName="lastNameControl" [(ngModel)]="PropertyDataModel.ownerLastName"/>
+        </div>
+        <div class="item">
+          <label for="eaddress">Owner Email Address<span>*</span></label>
+          <input id="eaddress" type="text" formControlName="EmailControl"  class="form-control form-control-lg" name="eaddress" [(ngModel)]="PropertyDataModel.ownerEmail" />
+        </div>
+        <div class="item">
+          <label for="address">Property Address<span>*</span></label>
+          <input id="address" type="text"   name="address" formControlName="PropertyAddressControl" [(ngModel)]="PropertyDataModel.propertyAddress" />
+        </div>
+        <div class="item">
+          <label for="area">Property Area<span>*</span></label>
+          <input id="area" type="text"   name="area" formControlName="PropertyAreaControl" [(ngModel)]="PropertyDataModel.area"/>
+        </div>
+        <div class="item">
+          <label for="legalDescription">Legal Description<span>*</span></label>
+          <input id="legalDescription" type="text"  formControlName="LegalDescriptionControl" name="legalDescription"[(ngModel)]="PropertyDataModel.legalDescription" />
+        </div>
+        <div class="item">
+          <label for="plotNo">Plot No<span>*</span></label>
+          <input id="plotNo" type="text"   name="plotNo" formControlName="plotNoControl"[(ngModel)]="PropertyDataModel.plotNo"/>
+        </div>
+        
+        <div class="item">
+          <label for="propertyType">Property Type<span>*</span></label>
+          <input id="propertyType" type="text"   name="propertyType" formControlName="PropertyTypeControl"[(ngModel)]= "PropertyDataModel.propertyType"/>
+        </div>
+        
+         <div class="item">
+          <label for="rate">Property Rate<span>*</span></label>
+          <input id="rate" type="text"   formControlName="PropertyRateControl" name="rate" [(ngModel)]="PropertyDataModel.rate" />
+        </div>
+        <div class="item">
+          <label for="escrowDetail">Escrow Details <span>*</span></label>
+        <select name="escrowDetail" formControlName="EscrowDetailsControl" [(ngModel)]="PropertyDataModel.escrowDetail">
+                    <option *ngFor="let p of escrowStatus" [value]="p.EscrowName">{{p.EscrowName}}</option>
+                  </select>
+      </div>
+       <div class="item">
+          <label for="taxAmount">Tax Amount <span>*</span></label>
+          <input id="taxAmount" type="text"  formControlName="TaxAmountControl" name="taxAmount" [(ngModel)]="PropertyDataModel.taxAmount" />
+        </div>
+        
+        <div class="item">
+          <label for="taxRate">Tax Rate <span>*</span></label>
+          <input id="taxRate" type="text"   formControlName="TaxRateControl" name="taxRate" [(ngModel)]="PropertyDataModel.taxRate"/>
+        </div>
+        
+      <div class="item">
+        <label for="taxStatus">Tax Status <span>*</span></label>
+        <select name="taxStatus" formControlName="TaxStatusControl"[(ngModel)]="PropertyDataModel.taxStatus" >
+                    <option *ngFor="let p of taxDrop" [value]="p.taxStatusName">{{p.taxStatusName}}</option>
+                  </select>
+      </div>
+
+      <button type="button" class="btn btn-outline-success" (click)="updateProperty()">ADD</button>
+      
+    </div>
+    
+    </fieldset>
+    <br/>
+    
+  </form>
+</div>
+</body>
+</html>

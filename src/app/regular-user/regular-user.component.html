@@ -1,0 +1,70 @@
+<html>
+<body>
+
+    <div class="testbox">
+          
+      <form [formGroup]="PropertyDataModel.formPropertyGroup" class="mx-1 mx-md-4">
+      <div class="banner">
+        <h1>Search Property</h1>
+      </div>
+      <br/>
+      <fieldset>
+        <legend>Search Property Form</legend>
+        <div class="columns">
+          <div class="item">
+            <label for="fname">Owner First Name<span>*</span></label>
+            <input id="fname" type="text" formControlName="firstNameControl" name="fname" [(ngModel)]="PropertyDataModel.ownerFirstName" />
+          </div>
+          <div class="item">
+            <label for="lname">Owner Last Name<span>*</span></label>
+            <input id="lname" type="text" name="lname" formControlName="lastNameControl" [(ngModel)]="PropertyDataModel.ownerLastName"/>
+          </div>
+          <div class="item">
+            <label for="address">Property Address<span>*</span></label>
+            <input id="address" type="text"  formControlName="PropertyAddressControl" name="address" [(ngModel)]="PropertyDataModel.propertyAddress" />
+          </div>
+          <div class="item">
+            <label for="propertyType">Property Type<span>*</span></label>
+            <input id="propertyType" type="text" formControlName="PropertyTypeControl"  name="propertyType" [(ngModel)]= "PropertyDataModel.propertyType"/>
+          </div>
+
+          <button type="button" class="btn btn-outline-success" (click)="searchProperty()">SEARCH</button>
+          </div>
+          <div>
+            <table class="table table-hover" *ngIf="showTable">
+              <h2>Search Result:</h2>
+              <tr>
+                <th>Property Id</th>
+                <th>Area(Square-Feet)</th>
+                <th>Plot Number</th>
+                <th>Address</th>
+                <th>Legal Description</th>
+                <th>Property Type </th>
+                
+               <!-- <td>Average Rate per Square Feet</td> -->
+  
+              </tr>
+              <tr  *ngFor='let property of uiResponse | paginate: {itemsPerPage: 1,
+              currentPage: page,
+              totalItems: totalLength }'>
+                <td>{{property.propertyId}}</td>
+                <td>{{property.area}}</td>
+                <td>{{property.plotNo}}</td>
+                <td>{{property.propertyAddress}}</td>
+                <td>{{property.legalDescription}}</td>
+                <td>{{property.propertyType}}</td>
+                <!-- <td>{{property.publisher}}</td> -->
+               
+              </tr>
+
+              <pagination-controls (pageChange)="page = $event"></pagination-controls>
+            </table>
+            
+            </div>
+            
+          </fieldset>
+          </form>
+          </div>
+          
+</body>
+  </html>

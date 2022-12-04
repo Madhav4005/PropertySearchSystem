@@ -1,0 +1,53 @@
+<section class="vh-100">
+    <div class="container-fluid h-custom">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-9 col-lg-6 col-xl-5">
+          <img src="https://www.novaloca.com/blog/wp-content/uploads/2019/10/london-3732184_1920-pixabay-by-Albrecht-Fietz.jpg"
+            class="img-fluid" alt="Sample image">
+        </div>
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+          <form [formGroup]="UserDataModel.formUserGroup">
+            <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+              <p class="lead fw-normal mb-0 me-3">&nbsp;</p>
+             
+            </div> 
+        
+            <div class="form-outline mb-3">
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                  <span class="input-group-text"> <i style="width: 80px;">User Name</i> </span>
+              </div>
+              <input type="email" id="form3Example3" formControlName="UsernameControl" class="form-control form-control-lg"
+                placeholder="Enter a username" [(ngModel)]="UserDataModel.userName"/>
+                    </div>
+                    <span class="validspan" *ngIf="!UserDataModel.formUserGroup.controls['UsernameControl'].valid && 
+                UserDataModel.formUserGroup.controls['UsernameControl']?.touched" style="color: red;font-size: 20px;"> Please enter a valid email.</span>                               
+          </div>
+            <!-- Password input -->
+
+            <div class="form-outline mb-3">
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                  <span class="input-group-text"> <i style="width: 80px;">Password</i> </span>
+              </div>
+              <input type="password" id="form3Example4" formControlName="UserPasswordControl"  class="form-control form-control-lg"
+              placeholder="Enter password" [(ngModel)]="UserDataModel.password"/>
+                 </div>
+                 <span class="validspan" *ngIf="!UserDataModel.formUserGroup.controls['UserPasswordControl'].valid && 
+              UserDataModel.formUserGroup.controls['UserPasswordControl']?.touched" style="color: red;font-size: 20px;"> Please enter a valid password.</span>
+          
+            </div>
+             
+            <div class="text-center text-lg-start mt-4 pt-2">
+              <button type="button" class="btn btn-primary btn-lg"
+                style="padding-left: 2.5rem; padding-right: 2.5rem;" [disabled]="!(UserDataModel.formUserGroup.valid)" (click)="signin()">Login</button>
+              <p class="small mt-2 pt-1 mb-0">Don't have an account? <a [routerLink]="['/signup']"
+                  class="link-danger">Register</a></p>
+            </div>
+  
+          </form>
+        </div>
+      </div>
+    </div>
+   
+  </section>
